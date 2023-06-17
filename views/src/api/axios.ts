@@ -3,9 +3,11 @@ import type { AxiosResponse } from 'axios'
 import axios from 'axios'
 
 import { useMessage } from 'naive-ui'
+console.log('import.meta.env', import.meta.env.VITE_TYPE)
+const VITE_TYPE = import.meta.env.VITE_TYPE
 const instance = axios.create({
   // process.env.NODE_ENV === 'development' 来判断是否开发环境
-  baseURL: process.env.NODE_ENV === 'development' ? '/api' : '',
+  baseURL: VITE_TYPE === 'LOCAL' ? '/api' : '',
   // baseURL: '',
   /*  process.env.USAGE === 'development'
       ?

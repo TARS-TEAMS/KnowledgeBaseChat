@@ -11,7 +11,8 @@
     "vue"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "VITE_TYPE='LOCAL' vite",
+    "tars": "VITE_TYPE='TARS' vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
