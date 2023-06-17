@@ -37,8 +37,8 @@ export default defineConfig((env) => {
       open: false,
       proxy: {
         '/api': {
-          // target: 'http://127.0.0.1:7861',
-          target: 'https://dev.iwhalecloud.com',
+          target: 'http://127.0.0.1:7861',
+          // target: 'https://dev.iwhalecloud.com',
           changeOrigin: true, // 允许跨域
           rewrite: path => path.replace('/api/', ''),
         },

@@ -152,8 +152,8 @@ class LocalDocQA:
         if llm_model.startswith('moss'):
             from models.moss_llm import MOSS
             self.llm = MOSS()
-        elif llm_model.startswith('gpt-3.5-turb'):
-            from models.gtp35_llm import ChatGPT
+        elif llm_model.startswith('gpt-3.5-turbo'):
+            from models.gpt_llm import ChatGPT
             self.llm = ChatGPT()
         else:
             from models.chatglm_llm import ChatGLM
