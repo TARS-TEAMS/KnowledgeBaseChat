@@ -174,3 +174,7 @@ embedding/*
 pyrightconfig.json
 loader/tmp_files
 flagged/*
+
+node_modules/
+
+/node_modules/
