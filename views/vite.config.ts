@@ -33,12 +33,11 @@ export default defineConfig((env) => {
     plugins: setupPlugins(viteEnv),
     server: {
       host: '0.0.0.0',
-      port: 1002,
+      port: 7860,
       open: false,
       proxy: {
         '/api': {
           target: 'http://127.0.0.1:7861',
-          // target: 'https://dev.iwhalecloud.com',
           changeOrigin: true, // 允许跨域
           rewrite: path => path.replace('/api/', ''),
         },
