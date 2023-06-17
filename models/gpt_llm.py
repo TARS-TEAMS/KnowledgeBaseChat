@@ -64,6 +64,8 @@ def get_properties(option_name):
 def get_prop(section, option_name):
     # 初始化API KEY
     config = configparser.RawConfigParser()
+    current_path = os.getcwd()
+    print(current_path)
     config.read('configs/environment.properties')
 
     value = ''
