@@ -1,3 +1,4 @@
+import configparser
 from typing import List, Dict, Optional
 
 import openai
@@ -5,8 +6,6 @@ from langchain.llms.base import LLM
 
 from configs.model_config import *
 from utils import torch_gc
-
-openai.api_key = "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"
 
 
 class ChatGPT(LLM):
@@ -55,12 +54,32 @@ class ChatGPT(LLM):
                    use_lora=False,
                    device_map: Optional[Dict[str, int]] = None,
                    **kwargs):
-        print(1)
+        openai.api_key = get_properties("OPENAI_API_KEY")
+
+
+def get_properties(option_name):
+    return get_prop('default', option_name)
+
+
+def get_prop(section, option_name):
+    # 初始化API KEY
+    config = configparser.RawConfigParser()
+    config.read('configs/environment.properties')
+
+    value = ''
+    try:
+        value = config.get(section, option_name)
+    except configparser.NoSectionError:
+        print('No such section')
+    except configparser.NoOptionError:
+        print('No such option')
+
+    return value
 
 
 if __name__ == "__main__":
     llm = ChatGPT()
-    # llm.load_model(model_name_or_path=llm_model_dict[LLM_MODEL], llm_device=LLM_DEVICE, )
+    llm.load_model(model_name_or_path=llm_model_dict[LLM_MODEL], llm_device=LLM_DEVICE, )
     last_print_len = 0
     for resp, history in llm._call("你好", streaming=True):
         logger.info(resp[last_print_len:])
@@ -68,4 +87,3 @@ if __name__ == "__main__":
     for resp, history in llm._call("你好", streaming=False):
         logger.info(resp)
     pass
-    llm._call('who are you?')
