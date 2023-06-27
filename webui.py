@@ -206,8 +206,8 @@ block_css = """.importantButton {
 }"""
 
 webui_title = """
-# 🎉langchain-ChatGLM WebUI🎉
-👍 [https://github.com/imClumsyPanda/langchain-ChatGLM](https://github.com/imClumsyPanda/langchain-ChatGLM)
+# KnowledgeBaseChat WebUI
+👍 [https://github.com/TARS-TEAMS/KnowledgeBaseChat](https://github.com/TARS-TEAMS/KnowledgeBaseChat)
 """
 default_vs = vs_list[0] if len(vs_list) > 1 else "为空"
 init_message = f"""欢迎使用 langchain-ChatGLM Web UI！
