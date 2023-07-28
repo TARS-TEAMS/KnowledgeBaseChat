@@ -32,10 +32,10 @@ class ChatGPT(LLM):
             {"role": "user", "content": prompt},
         ]
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-16k",
             messages=messages,
             temperature=0,
-            max_tokens=3096,
+            max_tokens=4096,
             top_p=1.0,
             frequency_penalty=0.0,
             presence_penalty=0.0,
